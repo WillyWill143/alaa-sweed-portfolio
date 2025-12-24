@@ -17,9 +17,9 @@ export const sendMessage = async (data: ContactFormData) => {
   // 5. Go to Account -> API Keys -> Get Public Key
   
   // REPLACE THE STRINGS BELOW WITH YOUR ACTUAL KEYS
-  const serviceID = 'YOUR_SERVICE_ID';   // e.g. "service_z38s..."
-  const templateID = 'YOUR_TEMPLATE_ID'; // e.g. "template_x92..."
-  const publicKey = 'YOUR_PUBLIC_KEY';   // e.g. "user_Kj9..."
+  const serviceID = 'service_xdm9561';  
+  const templateID = 'template_wmv8kqh'; 
+  const publicKey = 'VB-HD0qHz56DIPflL';  
 
   try {
     const templateParams = {
