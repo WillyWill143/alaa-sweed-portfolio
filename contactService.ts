@@ -1,4 +1,6 @@
+import emailjs from '@emailjs/browser';
 
+// Define the shape of the form data
 export interface ContactFormData {
   name: string;
   email: string;
@@ -7,27 +9,33 @@ export interface ContactFormData {
   message: string;
 }
 
-export async function sendMessage(formData: ContactFormData) {
-  try {
-    // Attempt to reach the backend
-    const res = await fetch("http://localhost:3001/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+export const sendMessage = async (data: ContactFormData) => {
+  // 1. Go to https://www.emailjs.com/
+  // 2. Create a free account
+  // 3. Add a Service (Gmail) -> Get Service ID
+  // 4. Add a Template -> Get Template ID
+  // 5. Go to Account -> API Keys -> Get Public Key
+  
+  // REPLACE THE STRINGS BELOW WITH YOUR ACTUAL KEYS
+  const serviceID = 'YOUR_SERVICE_ID';   // e.g. "service_z38s..."
+  const templateID = 'YOUR_TEMPLATE_ID'; // e.g. "template_x92..."
+  const publicKey = 'YOUR_PUBLIC_KEY';   // e.g. "user_Kj9..."
 
-    return await res.json();
-  } catch (err) {
-    console.warn("Backend unavailable, switching to mock response.", err);
+  try {
+    const templateParams = {
+      from_name: data.name,
+      from_email: data.email,
+      phone: data.phone,
+      subject: data.subject,
+      message: data.message,
+    };
+
+    // This sends the email directly from the browser
+    await emailjs.send(serviceID, templateID, templateParams, publicKey);
     
-    // Fallback: Simulate a successful response so the UI doesn't break
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({ 
-          success: true, 
-          message: "Message sent successfully! (Demo Mode: Backend unavailable)" 
-        });
-      }, 1000);
-    });
+    return { success: true, message: 'Message sent successfully!' };
+  } catch (error) {
+    console.error('Failed to send message:', error);
+    return { success: false, message: 'Failed to send message. Please check your internet connection.' };
   }
-}
+};
