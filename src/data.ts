@@ -219,7 +219,7 @@ export const contentEn: Content = {
       {
         title: 'Weakly Supervised Road Extraction from Satellite Imagery using Partial Focal Loss and Stratified Point Supervision',
         meta: '2025 — Computer Vision & Remote Sensing', 
-        description: 'Developed a cost-effective road extraction framework utilizing sparse point annotations. Introduced Stratified Point Supervision and Partial Focal Loss to effectively handle label sparsity and class imbalance in satellite imagery.',
+        description: '((Still PREPRINT))Developed a cost-effective road extraction framework utilizing sparse point annotations. Introduced Stratified Point Supervision and Partial Focal Loss to effectively handle label sparsity and class imbalance in satellite imagery.',
         doi: 'https://doi.org/10.5281/zenodo.17818891'
       }
     ]
