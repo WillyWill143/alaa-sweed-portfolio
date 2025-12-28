@@ -73,7 +73,7 @@ export const contentEn: Content = {
       {
         role: 'English Language Teacher',
         company: 'A.T Academy',
-        period: 'Apr 2025 – Jun 2025',
+        period: 'Apr 2025 – Aug 2025',
         location: 'Remote (Saudi Arabia)',
         description: [
           'Delivered engaging English language curriculum to diverse student groups.',
